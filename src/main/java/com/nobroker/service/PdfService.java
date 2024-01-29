@@ -1,7 +1,13 @@
 package com.nobroker.service;
 
+
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.PdfPTable;
+
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Paragraph;
+
 import com.itextpdf.text.pdf.PdfWriter;
 import com.nobroker.entity.User;
 import org.springframework.stereotype.Service;
@@ -11,6 +17,7 @@ import java.util.List;
 
 @Service
 public class PdfService {
+
 
     public byte[] generatePdfReport(List<User> userList) throws DocumentException {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
