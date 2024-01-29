@@ -44,18 +44,4 @@ public class PdfService {
 
         return baos.toByteArray();
     }
-}/*
-           //ADDING DATA IN PARAGRAPH FORMAT OR  WITHOUT TABLULAR FORM
-            document.add(new Paragraph("User Report"));
-
-            for (User user : userList) {
-                document.add(new Paragraph("Email: " + user.getId()));
-                document.add(new Paragraph("Name: " + user.getName()));
-                document.add(new Paragraph("Email: " + user.getEmail()));
-                document.add(new Paragraph("mobile: " + user.getMobile()));
-                document.add(new Paragraph("emailVerified: " + user.isEmailVerified()));
-                // NEXT USER DETAILS AND SO ON
-                document.add(new Paragraph("\n"));
-            }
-
-*/
+}

@@ -39,7 +39,7 @@ public class PdfController {
 
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_PDF);
-        headers.setContentDispositionFormData("inline", "Tabular format.pdf");
+        headers.setContentDispositionFormData("inline", "Tabular formatā.pdf");
         return ResponseEntity.ok().headers(headers).body(pdfBytes);
       }catch (DocumentException e) {
 
