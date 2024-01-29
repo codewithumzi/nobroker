@@ -4,11 +4,11 @@ package com.nobroker.controller;
 import com.itextpdf.text.DocumentException;
 import com.nobroker.entity.User;
 import com.nobroker.repository.UserRepository;
+
 import com.nobroker.service.PdfService;
-import com.nobroker.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
+
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -39,7 +39,7 @@ public class PdfController {
 
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_PDF);
-        headers.setContentDispositionFormData("inline", "Tabular formatā.pdf");
+        headers.setContentDispositionFormData("inline", "Tabular format.pdf");
         return ResponseEntity.ok().headers(headers).body(pdfBytes);
       }catch (DocumentException e) {
 
