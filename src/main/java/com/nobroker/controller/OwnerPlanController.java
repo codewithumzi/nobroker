@@ -1,27 +1,23 @@
 package com.nobroker.controller;
 
-import com.nobroker.payload.OwnerPlanDto;
+import com.nobroker.entity.OwnerPlan;
 import com.nobroker.service.OwnerPlanService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
-@RequestMapping("/api/ownerPlan")
+@RequestMapping("/api/owner-plans")
 public class OwnerPlanController {
+    //http://localhost:3306/api/owner-plans/subscribe/{userId}/{duration}
     @Autowired
     private OwnerPlanService ownerPlanService;
-    @PostMapping
-    public ResponseEntity<OwnerPlanDto> createOwnerPlans(@RequestBody OwnerPlanDto ownerPlanDto){
-        OwnerPlanDto dto = ownerPlanService.createOwnerPlans(ownerPlanDto);
-        return new ResponseEntity<>(dto, HttpStatus.CREATED);
+    @PostMapping("/subscribe/{userId}/{duration}")
+            public OwnerPlan subscribeOwnerPlan(@PathVariable long userId, @PathVariable int duration){
+        ownerPlanService.subscribeOwnerPlan(userId,duration);
+        return null;
     }
-    @GetMapping
-    public List<OwnerPlanDto>getAllOwnerPlans(){
-        return  ownerPlanService.getAllOwnerPlans();
-
+    @GetMapping("/{ownerPlanId}")
+    public OwnerPlan getOwnerPlan(@PathVariable long ownerPlanId){
+        return  ownerPlanService.getOwnerPlan(ownerPlanId);
     }
 }

@@ -1,12 +1,11 @@
 package com.nobroker.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "owner_plans")
@@ -15,32 +14,23 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class OwnerPlan {
     @Id
-    private long planId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "owner_plan_id")
+    private long ownerPlanId;// Assuming this is your primary key
 
-    @Column(name = "plan_name",unique = true)
-    private String planName;
+    @Column(name = "user_id", unique = true)
+    private long userId;
 
-    @Column(name = "price")
-    private double price;
+    @Column(name = "subscription_active")
+    private boolean subscriptionActive;
 
-    @Column(name = "plan_validity")
-    private int planValidity;
+    @Column(name = "subscription_active_date")
+    private LocalDate subscriptionActiveDate;
 
-    @Column(name = "relationship_manager")
-    private boolean relationshipManager;
+    @Column(name = "subscription_expiration_date")
+    private LocalDate subscriptionExpirationDate;
 
-    @Column(name = "rental_agreement")
-    private boolean rentalAgreement;
+    @Column(name = "number_of_days")
+    private int numberOfDays;//Integer
 
-    @Column(name = "property_promotion")
-    private boolean propertyPromotion;
-
-    @Column(name = "guaranteed_tenants")
-    private boolean guaranteedTenants;
-
-    @Column(name = "showing_property")
-    private boolean showingProperty;
-
-    @Column(name = "facebook_marketing_of_property")
-    private boolean facebookMarketingOfProperty;
 }
